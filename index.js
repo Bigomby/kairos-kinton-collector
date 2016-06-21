@@ -1,7 +1,7 @@
 const SockJS = require('sockjs-client');
 const webstomp = require('webstomp-client');
 
-const ws = new SockJS('http://' + '172.20.0.2' + ':15674/stomp');
+const ws = new SockJS('http://' + 'ws.kinton.xyz' + ':15674/stomp');
 const client = webstomp.over(ws, {
   debug: false,
 });
