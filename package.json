@@ -1,0 +1,11 @@
+{
+  "name": "kairos-kinton",
+  "version": "0.0.0",
+  "description": "Kairos service that connects to Kinton and get real time data.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Diego Fernández",
+  "license": "MIT"
+}
