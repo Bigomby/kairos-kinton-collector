@@ -1,6 +1,7 @@
 const stompit = require('stompit');
 const winston = require('winston');
 const influxdb = require('influx');
+const request = require('request');
 
 const deviceUUID = process.env.KINTON_HUB_UUID;
 
@@ -30,10 +31,44 @@ const connectOptions = {
   },
 };
 
+const datasource = {
+  name: 'Kairos',
+  type: 'influxdb',
+  url: 'http://influxdb:8086',
+  access: 'proxy',
+  database: 'kairos',
+};
+
 if (!deviceUUID) {
   logger.error('No KINTON_HUB_UUID defined');
   process.exit(1);
 }
+
+// First a 'kairos' database should be created
+influx.createDatabase('kairos', (err, result) => {
+  if (err) {
+    logger.error(err);
+    process.exit(1);
+  }
+
+  logger.info(result);
+});
+
+// Insert the previously created database as source on Grafana
+
+setTimeout(() => {
+  request.post({
+    url: 'http://grafana:3000/api/datasources',
+    json: datasource,
+  }, (err, httpResponse, body) => {
+    if (err) {
+      logger.error(err);
+      return;
+    }
+
+    logger.info(body);
+  }).auth('esibot', 'esibot', true);
+}, 15000);
 
 stompit.connect(connectOptions, (error, stomp) => {
   if (error) {
