@@ -1,5 +1,5 @@
 {
-  "name": "kairos-kinton",
+  "name": "kairos-kinton-collector",
   "version": "0.0.0",
   "description": "Kairos service that connects to Kinton and get real time data.",
   "main": "index.js",
@@ -16,7 +16,6 @@
     "eslint-plugin-react": "^5.2.2"
   },
   "dependencies": {
-    "influx": "^4.2.0",
     "stompit": "^0.23.0",
     "winston": "^2.2.0"
   }
