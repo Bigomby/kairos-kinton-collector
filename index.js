@@ -65,7 +65,7 @@ stompit.connect(connectOptions, (connectionError, stomp) => {
     });
   });
 
-  app.post('/api/sun', (req, res) => {
+  app.post('/kairos/sun', (req, res) => {
     if (!req.body.fleet || !req.body.device || !req.body.action) {
       return;
     }
@@ -96,7 +96,7 @@ stompit.connect(connectOptions, (connectionError, stomp) => {
     res.end();
   });
 
-  app.post('/api/rain', (req, res) => {
+  app.post('/kairos/rain', (req, res) => {
     if (!req.body.fleet || !req.body.device || !req.body.action) {
       return;
     }
