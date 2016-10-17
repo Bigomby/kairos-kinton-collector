@@ -16,6 +16,9 @@
     "eslint-plugin-react": "^5.2.2"
   },
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "requestify": "^0.2.3",
     "stompit": "^0.23.0",
     "winston": "^2.2.0"
   }
